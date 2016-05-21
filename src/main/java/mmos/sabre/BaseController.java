@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BaseController {
 
     @Autowired
-    private CounterBean counter;
+    private CounterBean counterBean;
+
+    @Autowired
+    private ComposableBean composableBean;
 
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello, " + counter.incrementAndGet() + "th person!";
+        return "Hello, " + counterBean.incrementAndGet() + "th person!<br /> " + composableBean;
     }
 }
