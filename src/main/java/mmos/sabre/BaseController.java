@@ -4,6 +4,7 @@ package mmos.sabre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -43,5 +44,11 @@ public class BaseController {
                 "PrototypeBean form ComposableBean" + composableBean.getPrototypeInfo() +
                 "AppCtxAwareMon: " + sb.toString() +
                 "Passenger: " + passenger.toString();
+    }
+
+    @RequestMapping("passengerAsJson")
+    @ResponseBody
+    Passenger provideJsonResponse() {
+        return new Passenger("exampleId", "examplePassenger");
     }
 }

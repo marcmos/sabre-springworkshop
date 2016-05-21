@@ -17,6 +17,6 @@ public class PassengerFactoryBean implements FactoryBean<Passenger> {
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 }
