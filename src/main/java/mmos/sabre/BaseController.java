@@ -13,7 +13,8 @@ public class BaseController {
     @Autowired
     private CounterBean counterBean;
 
-    @Resource(name = "inMemoryRepo")
+    @Resource(name = "${repoName}")
+
     private Repo repo;
 
     @Autowired
