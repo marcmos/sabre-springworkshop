@@ -24,9 +24,15 @@ public class BaseController {
     @Autowired
     private ComposableBean composableBean;
 
+    @Autowired
+    private PrototypeBean prototypeBean;
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello, " + counterBean.incrementAndGet() + "th person!<br /> " + composableBean + "<br/>" + repo;
+        return "Hello, " + counterBean.incrementAndGet() + "th person!<br/> " + composableBean + "<br/>" +
+                "Repo: " + repo + "<br/>" +
+                "PrototypeBean from BaseController: " + prototypeBean + "<br/>" +
+                "PrototypeBean form ComposableBean" + composableBean.getPrototypeInfo();
     }
 }

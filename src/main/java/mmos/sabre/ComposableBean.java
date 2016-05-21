@@ -19,6 +19,9 @@ public class ComposableBean implements InitializingBean, DisposableBean {
     @Autowired
     private CounterBean counterBean;
 
+    @Autowired
+    private PrototypeBean prototypeBean;
+
     @Override
     public String toString() {
         return super.toString() + "counter: " + counterBean.get();
@@ -35,4 +38,7 @@ public class ComposableBean implements InitializingBean, DisposableBean {
         System.err.println("Shutting down ComposableBean!");
     }
 
+    public String getPrototypeInfo() {
+        return prototypeBean.toString();
+    }
 }
