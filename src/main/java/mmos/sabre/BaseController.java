@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+
 @Controller
 @ComponentScan(value = "mmos.sabre")
 @EnableAutoConfiguration
@@ -16,7 +18,7 @@ public class BaseController {
     @Autowired
     private CounterBean counterBean;
 
-    @Autowired
+    @Resource(name = "inMemoryRepo")
     private Repo repo;
 
     @Autowired
