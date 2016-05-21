@@ -17,11 +17,14 @@ public class BaseController {
     private CounterBean counterBean;
 
     @Autowired
+    private Repo repo;
+
+    @Autowired
     private ComposableBean composableBean;
 
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello, " + counterBean.incrementAndGet() + "th person!<br /> " + composableBean;
+        return "Hello, " + counterBean.incrementAndGet() + "th person!<br /> " + composableBean + "<br/>" + repo;
     }
 }
