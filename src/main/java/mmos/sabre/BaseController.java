@@ -26,6 +26,9 @@ public class BaseController {
     @Autowired
     private ApplicationContextAwareMonitor applicationContextAwareMonitor;
 
+    @Autowired
+    private Passenger passenger;
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
@@ -38,6 +41,7 @@ public class BaseController {
                 "Repo: " + repo + "<br/>" +
                 "PrototypeBean from BaseController: " + prototypeBean + "<br/>" +
                 "PrototypeBean form ComposableBean" + composableBean.getPrototypeInfo() +
-                "AppCtxAwareMon: " + sb.toString();
+                "AppCtxAwareMon: " + sb.toString() +
+                "Passenger: " + passenger.toString();
     }
 }
