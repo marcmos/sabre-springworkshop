@@ -23,12 +23,21 @@ public class BaseController {
     @Autowired
     private PrototypeBean prototypeBean;
 
+    @Autowired
+    private ApplicationContextAwareMonitor applicationContextAwareMonitor;
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
+        StringBuilder sb = new StringBuilder();
+        for(String bean: applicationContextAwareMonitor.getAllBeans()) {
+            sb.append("Bean: " + bean + "<br/>");
+        }
+
         return "Hello, " + counterBean.incrementAndGet() + "th person!<br/> " + composableBean + "<br/>" +
                 "Repo: " + repo + "<br/>" +
                 "PrototypeBean from BaseController: " + prototypeBean + "<br/>" +
-                "PrototypeBean form ComposableBean" + composableBean.getPrototypeInfo();
+                "PrototypeBean form ComposableBean" + composableBean.getPrototypeInfo() +
+                "AppCtxAwareMon: " + sb.toString();
     }
 }
