@@ -2,7 +2,7 @@ package mmos.sabre;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("unimplementedRepo")
 public class NotImplementedRepo implements Repo {
     @Override
     public Passenger get(String id) {
